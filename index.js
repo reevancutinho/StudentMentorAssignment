@@ -14,7 +14,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.get("/", (req, res) => {
-  res.send("student mentor data...");
+  res.send("student mentor connected");
 });
 app.use("/student", studentRoute);
 app.use("/mentor", mentorRoute);

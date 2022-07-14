@@ -4,6 +4,7 @@ const router = express.Router();
 const { student, mentor } = require("../shared/db");
 
 router.get("/", async (req, res) => {
+  console.log("get all Students");
   try {
     const data = await student.find();
     res.send(data);
@@ -13,6 +14,7 @@ router.get("/", async (req, res) => {
 });
 
 router.post("/", async (req, res) => {
+  console.log("Student create route");
   try {
     const data = await student.create({
       name: req.body.name,
@@ -22,6 +24,7 @@ router.post("/", async (req, res) => {
     });
     res.send(data);
   } catch (e) {
+    console.log(e.message, "error");
     res.status(500).send("Error in student POST");
   }
 });
